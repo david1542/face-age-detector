@@ -1,6 +1,6 @@
-## Roojoom project
+## ds-boilerplate
 
-This repository contains the code for the Y-DATA project with Roojoom. The goal of the project was to build a model that takes into account contextual information + historical data, in order to predict the action with the highest chance of solving the problem. The models takes into account the sequence of actions as well.
+This repository serves as an initial boilerplate for a data science project. It's built on top of `ml-workspace`, with some setup.
 
 ### Installation
 
@@ -18,14 +18,6 @@ In order to run the development environment, simply run the following command:
 ./run_env.sh
 ```
 This spins up a container that listens on port 8080. If you go to `http://localhost:8080`, you'd enter the environment's portal.
-
-### Reproducability
-
-Each one of the branches in this repo represents an experiment. In order to re-produce experiments, simply checkout the branch and then run:
-```
-dvc pull
-```
-DVC will now try to fetch the relevant data for that specific branch.
 
 ### More info
 
