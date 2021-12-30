@@ -1,0 +1,3 @@
+_target_: clearml.Task
+
+project_name: 'Face Age Detector'

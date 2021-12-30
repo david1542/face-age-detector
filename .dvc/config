@@ -1,6 +1,0 @@
-[core]
-    remote = storage_gdrive
-['remote "storage_s3"']
-    url = s3://roojoom/dvcstore
-['remote "storage_gdrive"']
-    url = gdrive://1J--0VwALPGFqG3iu5GCobnEnC0TRzpp3

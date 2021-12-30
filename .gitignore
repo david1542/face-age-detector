@@ -4,6 +4,8 @@
 ##
 ## Add custom entries below here.
 ##
+data/
+outputs/
 docker_env
 dst-env/
 .cache/v/cache/lastfailed

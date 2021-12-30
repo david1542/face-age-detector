@@ -1,0 +1,4 @@
+_target_: src.models.fe.FeatureExtractor
+
+backbone: resnet18
+output_size: ???

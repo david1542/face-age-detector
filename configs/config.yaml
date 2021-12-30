@@ -1,0 +1,17 @@
+defaults:
+  - model: default.yaml
+  - trainer: default.yaml
+  - logger: clearml.yaml
+  - callbacks: default.yaml
+  - optimizer: adam.yaml
+  - datamodule: ???
+
+debug: true
+
+work_dir: ${hydra:runtime.cwd}
+
+# path to folder with data
+data_dir: ${work_dir}/data/
+
+# disable python warnings if they annoy you
+ignore_warnings: True

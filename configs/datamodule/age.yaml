@@ -1,0 +1,6 @@
+_target_: src.datamodules.age.datamodule.AgeDataModule
+
+fold: 0
+batch_size: 32
+image_width: 224
+image_height: 224
