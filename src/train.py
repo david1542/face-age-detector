@@ -1,6 +1,7 @@
 import hydra
 import logging
 import torch
+from clearml import Task
 from typing import List
 
 import pytorch_lightning as pl
@@ -13,6 +14,10 @@ log = get_logger()
 
 
 def train(config: DictConfig):
+    if config.get('use_clearml'):
+        task = Task.init(project_name='Personal Projects/Face Age Detector',
+                         task_name=config.get('task_name'))
+
     # Set seed for random number generators in pytorch, numpy and python.random
     if config.get("seed"):
         pl.seed_everything(config.seed, workers=True)
@@ -46,28 +51,17 @@ def train(config: DictConfig):
                 log.info(f"Instantiating callback <{cb_conf._target_}>")
                 callbacks.append(hydra.utils.instantiate(cb_conf))
 
-    # Init lightning loggers
-    logger: List[pl.loggers.LightningLoggerBase] = []
-    if "logger" in config:
-        for _, lg_conf in config.logger.items():
-            if "_target_" in lg_conf:
-                log.info(f"Instantiating logger <{lg_conf._target_}>")
-                logger.append(hydra.utils.instantiate(lg_conf))
-
     # Init lightning trainer
     log.info(f"Instantiating trainer <{config.trainer._target_}>")
     trainer: pl.Trainer = hydra.utils.instantiate(
-        config.trainer,  callbacks=callbacks, logger=logger)
+        config.trainer,  callbacks=callbacks)
 
     # Send some parameters from config to all lightning loggers
     log.info("Logging hyperparameters!")
     log_hyperparameters(
         config=config,
         model=model,
-        datamodule=datamodule,
         trainer=trainer,
-        callbacks=callbacks,
-        logger=logger,
     )
 
     # Train the model

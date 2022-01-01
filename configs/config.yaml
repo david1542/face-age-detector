@@ -1,13 +1,18 @@
 defaults:
   - trainer: default.yaml
-  - logger: clearml.yaml
   - callbacks: default.yaml
   - model: fe.yaml
   - optimizer: adam.yaml
   - datamodule: ???
 
-debug: true
+# Metric to optimize
+optimized_metric: 'val/f1-score'
 
+# ClearML config
+task_name: ???
+use_clearml: True
+
+debug: true
 work_dir: ${hydra:runtime.cwd}
 
 # path to folder with data
