@@ -4,3 +4,5 @@ gpus: 0
 
 min_epochs: 1
 max_epochs: 10
+
+fast_dev_run: False

@@ -16,8 +16,8 @@ class FeatureExtractor(torch.nn.Module):
         patch_backbone(backbone_name=backbone_name,
                        backbone=self.backbone, output_size=output_size)
 
-    def forward(self, *args, **kwargs):
-        return self.backbone(*args, **kwargs)
+    def forward(self, images):
+        return self.backbone(images)
 
 
 # Utility functions

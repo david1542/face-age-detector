@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 
 import pytorch_lightning as pl
@@ -37,9 +38,10 @@ class AgeDataModule(pl.LightningDataModule):
         self.fold = fold
         self.datasets = {}
         self.batch_size = batch_size
+        self.cpu_count = os.cpu_count()
         self.transform = create_transform(image_width, image_height)
 
-    def setup(self):
+    def setup(self, *args, **kwargs):
         train_set, valid_set = get_train_valid_sets(self.fold)
         train_set = preprocess_metadata(train_set)
         valid_set = preprocess_metadata(valid_set)
@@ -50,9 +52,7 @@ class AgeDataModule(pl.LightningDataModule):
             valid_set, transform=self.transform)
 
     def train_dataloader(self) -> DataLoader:
-        return DataLoader(dataset=self.datasets['train'], batch_size=self.batch_size,
-                          shuffle=True, collate_fn=self.collector.collect)
+        return DataLoader(dataset=self.datasets['train'], batch_size=self.batch_size, shuffle=True)
 
     def val_dataloader(self) -> DataLoader:
-        return DataLoader(dataset=self.datasets['valid'], batch_size=self.batch_size,
-                          collate_fn=self.collector.collect)
+        return DataLoader(dataset=self.datasets['valid'], batch_size=self.batch_size)
