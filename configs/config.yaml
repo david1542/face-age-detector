@@ -1,8 +1,8 @@
 defaults:
-  - model: default.yaml
   - trainer: default.yaml
   - logger: clearml.yaml
   - callbacks: default.yaml
+  - model: fe.yaml
   - optimizer: adam.yaml
   - datamodule: ???
 
