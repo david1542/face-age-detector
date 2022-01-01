@@ -1,0 +1,1 @@
+aws ec2 start-instances --instance-ids i-0532a60d338731f07 --profile=private

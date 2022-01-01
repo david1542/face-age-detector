@@ -4,7 +4,6 @@
 ##
 ## Add custom entries below here.
 ##
-scripts/start-instance.sh
 
 data/
 outputs/
