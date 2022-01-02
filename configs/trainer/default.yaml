@@ -6,3 +6,4 @@ min_epochs: 1
 max_epochs: 10
 
 fast_dev_run: False
+log_every_n_steps: 10
