@@ -12,7 +12,7 @@ def download_data():
     block_size = 1024  # 1 Kilobyte
 
     base_url = 'http://www.cslab.openu.ac.il/download/adiencedb/AdienceBenchmarkOfUnfilteredFacesForGenderAndAgeClassification/'
-    data_path = os.path.join(os.getcwd(), 'data_new')
+    data_path = os.path.join(os.getcwd(), 'data')
 
     if not os.path.exists(data_path):
         os.mkdir(data_path)
