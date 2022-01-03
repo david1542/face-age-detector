@@ -14,7 +14,7 @@ log = get_logger()
 
 
 def train(config: DictConfig):
-    if config.get('use_clearml'):
+    if config.get('use_clearml') and not config.trainer.get('fast_dev_run'):
         task = Task.init(project_name='Personal Projects/Face Age Detector',
                          task_name=config.get('task_name'))
 
