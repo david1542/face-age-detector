@@ -5,6 +5,9 @@ defaults:
   - optimizer: adam.yaml
   - datamodule: ???
 
+# Seed
+seed: 42
+
 # Metric to optimize
 optimized_metric: 'val/f1-score'
 
