@@ -4,7 +4,8 @@
 ##
 ## Add custom entries below here.
 ##
-
+**/*.jpg
+artifacts/
 data/
 outputs/
 docker_env
