@@ -15,8 +15,8 @@ log = get_logger()
 
 def train(config: DictConfig):
     if config.get('use_clearml') and not config.trainer.get('fast_dev_run'):
-        task = Task.init(project_name='Personal Projects/Face Age Detector',
-                         task_name=config.get('task_name'))
+        Task.init(project_name='Personal Projects/Face Age Detector',
+                  task_name=config.get('task_name'))
 
     # Set seed for random number generators in pytorch, numpy and python.random
     if config.get("seed"):

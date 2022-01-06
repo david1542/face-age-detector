@@ -4,6 +4,7 @@
 ##
 ## Add custom entries below here.
 ##
+**/*.jpeg
 **/*.jpg
 artifacts/
 data/
